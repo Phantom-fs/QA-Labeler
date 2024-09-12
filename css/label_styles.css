@@ -1,0 +1,200 @@
+/* Global Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #000428, #004e92);
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0;
+    margin-top: 20px;
+}
+
+#header {
+    color : white;
+}
+
+h1 {
+    color: #1e14a2;
+}
+
+/* Container Styles */
+.container {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    margin: 20px;
+}
+
+#container1 {
+    text-align: center;
+    padding: 20px;
+    margin: 20px;
+    max-width: 90%;
+}
+
+/* Video Styles */
+.videos {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+iframe {
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    max-width: 100%;
+}
+
+/* Form Section Styles */
+#container2 {
+    background-color: #f9f9f9;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    min-width: 60%;
+    max-width: 90%;
+}
+
+#fs-look {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+form {
+    display: grid;
+    grid-template-columns: 1fr repeat(4, auto); /* 1fr for labels, 3 auto columns for radio buttons */
+    gap: 20px 15px; /* 20px row gap, 15px column gap */
+    align-items: center; /* Align form items vertically */
+    justify-content: center; /* Center the form items horizontally */
+    padding: 10px;
+}
+
+.form-group {
+    display: contents; /* Display group contents directly inside the grid */
+}
+
+label:first-child {
+    text-align: left;
+    grid-column: 1; /* Put labels in the first column */
+    font-weight: bold; /* Optional: Bold text for labels */
+    color: #333;
+}
+
+label:last-child {
+    font-style: italic;
+    text-align: left;
+    /* italics for the last label */
+    color: #eb0707;
+    font-size: 0.9em;
+}
+
+input[type="radio"] {
+    margin-right: 4px; /* Add some space between radio buttons */
+}
+
+#sb-look {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    grid-column: span 5;
+    padding-top: 20px;
+}
+
+button {
+    padding: 15px;
+    background-color: #0c5fb8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-self: center;
+    font-size: 1em;
+    width: 20%;
+}
+
+button:hover {
+    background-color: #164475;
+}
+
+/* Media Queries */
+
+/* Adjust styles for tablet screens */
+@media (max-width: 768px) {
+    .videos {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    iframe {
+        width: 100%;
+        height: 300px;
+    }
+
+    .container {
+        padding: 20px;
+        width: 90%;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    form {
+        grid-template-columns: 1fr auto; /* Reduce grid columns to 2 */
+        gap: 15px 10px; /* Adjust gap */
+    }
+
+    button {
+        grid-column: span 2; /* Span across 2 columns */
+    }
+}
+
+/* Adjust styles for mobile phones */
+@media (max-width: 480px) {
+    #container1 {
+        width: 85%;
+        padding: 15px;
+        align-self: center;
+        padding: auto;
+    }
+
+    h1, h2 {
+        font-size: 1.5em;
+    }
+
+    h3 {
+        font-size: 1em;
+    }
+
+    #container2 {
+        padding: 15px;
+        width: 85%;
+    }
+
+    form {
+        grid-template-columns: 1fr repeat(4, auto);
+        gap: 10px 5px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    label:last-child {
+        /* put it in new line */
+        grid-column: span 5;
+        padding-bottom: 15px;
+        font-size: 0.8em;
+    }
+
+    button {
+        grid-column: 1; /* Span across 1 column */
+    }
+}

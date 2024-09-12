@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QA Labeler</title>
+    <link rel="icon" type="image/x-icon" href="css/Designer.png">
+    <link rel="stylesheet" href="css/label_styles.css">
+</head>
+<body>
+    <div>
+        <h1 id="header">QA Labeler</h1>
+    </div>
+
+    <!-- Container 1: Text and Video section -->
+    <div class="container" id="container1">
+        <div class="content">
+            <h2>Question</h2>
+            <h1 id="text">Loading text</h1>
+            
+            <!-- Videos from Google Drive -->
+            <div class="videos">
+                <div class="video-container">
+                    <h3 id="vid_text_1">Loading ...</h3>
+                    <iframe id="video1" src="" frameborder="0" width="640" height="480" allow="autoplay" allowfullscreen></iframe>
+                </div>
+                
+                <div class="video-container">
+                    <h3 id="vid_text_2">Loading ...</h3>
+                    <iframe id="video2" src="" frameborder="0" width="640" height="480" allow="autoplay" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="container2">
+        <div>
+            <h3 id="fs-look">Vote between Video 1 and 2</h3>
+        </div>
+
+        <form id="oceanForm">
+            <!-- O -->
+            <div class="form-group">
+                <label for="O">Openness:</label>
+                <label><input type="radio" name="O" value="-1"> Left</label>
+                <label><input type="radio" name="O" value="0" required> None</label>
+                <label><input type="radio" name="O" value="+1"> Right</label>
+                <label>Which video shows the person is more OPEN to new experiences?</label>
+            </div>
+
+            <!-- C -->
+            <div class="form-group">
+                <label for="C">Conscientiousness:</label>
+                <label><input type="radio" name="C" value="-1"> Left</label>
+                <label><input type="radio" name="C" value="0" required> None</label>
+                <label><input type="radio" name="C" value="+1"> Right</label>
+                <label>Which video shows that the person is more ORGANIZED and RESPONSIBLE?</label>
+            </div>
+
+            <!-- E -->
+            <div class="form-group">
+                <label for="E">Extroversion:</label>
+                <label><input type="radio" name="E" value="-1"> Left</label>
+                <label><input type="radio" name="E" value="0" required> None</label>
+                <label><input type="radio" name="E" value="+1"> Right</label>
+                <label>Which video shows the person is more ENERGETIC and OUTGOING?</label>
+            </div>
+
+            <!-- A -->
+            <div class="form-group">
+                <label for="A">Agreeableness:</label>
+                <label><input type="radio" name="A" value="-1"> Left</label>
+                <label><input type="radio" name="A" value="0" required> None</label>
+                <label><input type="radio" name="A" value="+1"> Right</label>
+                <label>Which video shows the person is more FRIENDLY and COMPASSIONATE?</label>
+            </div>
+
+            <!-- N -->
+            <div class="form-group">
+                <label for="N">Neuroticism:</label>
+                <label><input type="radio" name="N" value="-1"> Left</label>
+                <label><input type="radio" name="N" value="0" required> None</label>
+                <label><input type="radio" name="N" value="+1"> Right</label>
+                <label>Which video shows the person is more SENSITIVE, UNSTABLE or NERVOUS?</label>
+            </div>
+
+            <div id="sb-look">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="js/label_scripts.js"></script>
+</body>
+</html>
