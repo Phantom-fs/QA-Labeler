@@ -50,6 +50,26 @@ function clearForm() {
     global_link_2 = undefined;
 }
 
+// Disable the submit button and start a timer with a countdown for x seconds
+function disableSubmitButtonForTime(totalSeconds = 45) {
+    submitButton.disabled = true;
+    submitButton.style.backgroundColor = "black";
+    let timeLeft = totalSeconds;
+
+    const countdown = setInterval(() => {
+        submitButton.innerHTML = `Wait for ${timeLeft}s`;
+        timeLeft--;
+
+        // When countdown reaches zero, re-enable the submit button
+        if (timeLeft < 0) {
+            clearInterval(countdown); // Stop the countdown
+            submitButton.disabled = false;
+            submitButton.style.backgroundColor = "#0c5fb8"; // Reset the button color
+            submitButton.innerHTML = 'Submit'; // Reset the button text
+        }
+    }, 1000); // Update every second
+}
+
 // Fetch text from the API and display it in the first container
 function event_API() {
     fetch(Event_url, {
@@ -66,7 +86,7 @@ function event_API() {
             return;
         }
 
-        textElement.innerText = data.set_q;
+        textElement.innerText = "Q: " + data.set_q;
         vid1.src = data.video_link_1;
         vid2.src = data.video_link_2;
         h3_1.innerText = "Video 1"
@@ -105,16 +125,32 @@ function OCEAN_FormSubmission(event) {
     const E = document.querySelector('input[name="E"]:checked')?.value;
     const A = document.querySelector('input[name="A"]:checked')?.value;
     const N = document.querySelector('input[name="N"]:checked')?.value;
+    const i_vote = document.querySelector('input[name="interview-vote"]:checked')?.value;
 
-    if (!O || !C || !E || !A || !N) {
+    if (!O || !C || !E || !A || !N || !i_vote) {
         alert('Please fill out all fields!');
+        return;
+    }
+
+    // if three or more values of selected for O, C, E, A, N are "0", then return
+    if ([O, C, E, A, N].filter(value => value === "0").length >= 3) {
+        alert('Please prioritize either Video 1 or Video 2 for at least 3 of the O, C, E, A, N traits!');
+
+        // clear the buttons with "0" value
+        // document.querySelectorAll('input[type="radio"]').forEach(input => {
+        //     if (input.checked && input.value === "0") {
+        //         input.checked = false;
+        //     }
+        // });
+
+        disableSubmitButtonForTime(30);
         return;
     }
 
     // Disable the submit button and show a loading message
     submitButton.disabled = true;
     submitButton.innerHTML = 'Submitting...';
-    submitButton.style.backgroundColor = "black";
+    submitButton.style.backgroundColor = "purple";
 
     // Prepare form data for submission
     const formData = {
@@ -124,7 +160,8 @@ function OCEAN_FormSubmission(event) {
         "C": C,
         "E": E,
         "A": A,
-        "N": N
+        "N": N,
+        "i_vote": i_vote
     };
 
     // Send form data to the OCEAN API
@@ -183,10 +220,8 @@ function OCEAN_FormSubmission(event) {
         alert('Error in updating the Event Database. ' + error);
     })
     .finally(() => {
-        // Re-enable the submit button and reset its text
-        submitButton.disabled = false;
-        submitButton.innerHTML = 'Submit';
-        submitButton.style.backgroundColor = "#0c5fb8";
+        // New data, thus block again for 45 seconds
+        disableSubmitButtonForTime(45);
 
         alert('Form submitted successfully!');
     });
@@ -197,7 +232,9 @@ function OCEAN_FormSubmission(event) {
     event_API();
 }
 
-// Call the API to fetch the text and videos on page load
+// Disable the submit button for 45 seconds on page load
+disableSubmitButtonForTime(45);
+
 event_API();
 
 // Add event listener to the form

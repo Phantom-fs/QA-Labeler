@@ -9,7 +9,7 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
 
     // email id should contain 'muj' or 'manipal' or 'edu'
     if (!email.includes('muj') && !email.includes('manipal') && !email.includes('edu')) {
-        alert('Please enter a valid college email address. e.g. ');
+        alert('Please enter a valid college/organization email address with either \'.edu\' or \'.muj\' or \'.manipal\' domain.');
         return;
     }
 

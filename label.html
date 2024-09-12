@@ -15,7 +15,7 @@
     <!-- Container 1: Text and Video section -->
     <div class="container" id="container1">
         <div class="content">
-            <h2>Question</h2>
+            <h3>Participants are responding to the following question:</h3>
             <h1 id="text">Loading text</h1>
             
             <!-- Videos from Google Drive -->
@@ -35,7 +35,7 @@
 
     <div class="container" id="container2">
         <div>
-            <h3 id="fs-look">Vote between Video 1 and 2</h3>
+            <h3 id="fs-look">Vote for Video 1 or Video 2 based on the participant's response to the interview question</h3>
         </div>
 
         <form id="oceanForm">
@@ -82,6 +82,15 @@
                 <label><input type="radio" name="N" value="0" required> None</label>
                 <label><input type="radio" name="N" value="+1"> Right</label>
                 <label>Which video shows the person is more SENSITIVE, UNSTABLE or NERVOUS?</label>
+            </div>
+
+            <!-- interview-vote -->
+            <div class="form-group">
+                <label for="interview-vote">Interview Vote:</label>
+                <label><input type="radio" name="interview-vote" value="-1" required> Left</label>
+                <label>  ◘</label>
+                <label><input type="radio" name="interview-vote" value="+1"> Right</label>
+                <label>Which video's participant would you prefer to hire?</label>
             </div>
 
             <div id="sb-look">
