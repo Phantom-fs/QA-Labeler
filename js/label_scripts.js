@@ -125,9 +125,16 @@ function OCEAN_FormSubmission(event) {
     const E = document.querySelector('input[name="E"]:checked')?.value;
     const A = document.querySelector('input[name="A"]:checked')?.value;
     const N = document.querySelector('input[name="N"]:checked')?.value;
-    const i_vote = document.querySelector('input[name="interview-vote"]:checked')?.value;
+    const overall_personality = document.querySelector('input[name="overall-personality"]:checked')?.value;
 
-    if (!O || !C || !E || !A || !N || !i_vote) {
+    const i_vote = document.querySelector('input[name="interview-vote"]:checked')?.value;
+    const answer_score = document.querySelector('input[name="answer-score"]:checked')?.value;
+    const speaking_skills = document.querySelector('input[name="speaking-skills"]:checked')?.value;
+    const confidence_score = document.querySelector('input[name="confidence-score"]:checked')?.value;
+    const facial_expression = document.querySelector('input[name="facial-expression"]:checked')?.value;
+    const overall_performance = document.querySelector('input[name="overall-performance"]:checked')?.value;
+
+    if (!O || !C || !E || !A || !N || !overall_personality || !i_vote || !answer_score || !speaking_skills || !confidence_score || !facial_expression || !overall_performance) {
         alert('Please fill out all fields!');
         return;
     }
@@ -156,12 +163,20 @@ function OCEAN_FormSubmission(event) {
     const formData = {
         "main_id": global_main_id,
         "unique_id": global_unique_id,
+
         "O": O,
         "C": C,
         "E": E,
         "A": A,
         "N": N,
-        "i_vote": i_vote
+        "overall_personality": overall_personality,
+
+        "i_vote": i_vote,
+        "answer_score": answer_score,
+        "speaking_skills": speaking_skills,
+        "confidence_score": confidence_score,
+        "facial_expression": facial_expression,
+        "overall_performance": overall_performance
     };
 
     // Send form data to the OCEAN API
