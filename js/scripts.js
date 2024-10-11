@@ -7,11 +7,15 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
     var phone = document.getElementById("phone").value;
     var consentCheckbox = document.getElementById("consentCheckbox").checked;
 
-    // email id should contain 'muj' or 'manipal' or 'edu'
-    if (!email.includes('muj') && !email.includes('manipal') && !email.includes('edu')) {
-        alert('Please enter a valid college/organization email address with either \'.edu\' or \'.muj\' or \'.manipal\' domain.');
-        return;
-    }
+    /*
+        NO email contraints
+
+        // email id should contain 'muj' or 'manipal' or 'edu'
+        if (!email.includes('muj') && !email.includes('manipal') && !email.includes('edu')) {
+            alert('Please enter a valid college/organization email address with either \'.edu\' or \'.muj\' or \'.manipal\' domain.');
+            return;
+        }
+    */
 
     console.log(name, reg, email, phone, consentCheckbox);
 
